@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u6.2 JSON: Marcos Fernández García</title>
+    <style>
+        #parrafo {
+            white-space: pre-line;
+            background-color: beige;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #parrafo span {
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Listado personas</h1>
+    <button>Cargar lista (JSon)</button>
+    <div id="parrafo"></div>
+    <script>
+        var boton=document.getElementsByTagName("button");
+        boton.addEventListener("click", function () {
+        fetch('02.json')
+            .then(response => {
+                if (!response.ok) throw new Error("Error en tiempo de ejecución al cargar")
+                return response.json();  
+            }
+            )
+            .then(jsonData => {
+                jsonData.forEach(persona => {
+                    console.log(jsonData);  
+                    var p = document.getElementById('parrafo');
+                    p.innerHTML += `<li><span class="clave">Nombre: </span>$(persona.Nombre)-
+                        <span class="clave">Edad: </span>$(persona.Edad)</li>`
+                });
+            })
+            .catch(error => console.log(error)); 
+        })
+    </script>
+</body>
+
+</html>
