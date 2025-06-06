@@ -112,6 +112,22 @@
 			"problemMatcher": [
 				"$saxon-xslt"
 			]
+		},
+		{
+			"type": "xslt",
+			"label": "01 prueba Examen",
+			"saxonJar": "${config:XSLT.tasks.saxonJar}",
+			"xsltFile": "${command:xslt-xpath.pickXsltFile}",
+			"xmlSource": "${command:xslt-xpath.pickXmlSourceFile}",
+			"resultPath": "${workspaceFolder}/examenes/04/target/01.html",
+			"allowSyntaxExtensions40": "off",
+			"messageEscaping": "adaptive",
+			"group": {
+				"kind": "build"
+			},
+			"problemMatcher": [
+				"$saxon-xslt"
+			]
 		}
 	]
 }
